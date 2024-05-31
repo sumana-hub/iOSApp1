@@ -13,6 +13,8 @@
 		702DD9372BFF9D0000BB36EB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 702DD9362BFF9D0000BB36EB /* Base */; };
 		702DD9392BFF9D0200BB36EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 702DD9382BFF9D0200BB36EB /* Assets.xcassets */; };
 		702DD93C2BFF9D0200BB36EB /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 702DD93B2BFF9D0200BB36EB /* Base */; };
+		705B825D2C09163400BCE120 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705B825C2C09163400BCE120 /* AboutViewController.swift */; };
+		705B82612C0920FE00BCE120 /* number.html in Resources */ = {isa = PBXBuildFile; fileRef = 705B82602C0920FE00BCE120 /* number.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		702DD9382BFF9D0200BB36EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		702DD93B2BFF9D0200BB36EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		702DD93D2BFF9D0200BB36EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		705B825C2C09163400BCE120 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		705B82602C0920FE00BCE120 /* number.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = number.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +60,11 @@
 		702DD92E2BFF9D0000BB36EB /* iOSApp1 */ = {
 			isa = PBXGroup;
 			children = (
+				705B82602C0920FE00BCE120 /* number.html */,
 				702DD92F2BFF9D0000BB36EB /* AppDelegate.swift */,
 				702DD9312BFF9D0000BB36EB /* SceneDelegate.swift */,
 				702DD9332BFF9D0000BB36EB /* ViewController.swift */,
+				705B825C2C09163400BCE120 /* AboutViewController.swift */,
 				702DD9352BFF9D0000BB36EB /* Main.storyboard */,
 				702DD9382BFF9D0200BB36EB /* Assets.xcassets */,
 				702DD93A2BFF9D0200BB36EB /* LaunchScreen.storyboard */,
@@ -128,6 +134,7 @@
 				702DD9392BFF9D0200BB36EB /* Assets.xcassets in Resources */,
 				702DD93C2BFF9D0200BB36EB /* Base in Resources */,
 				702DD9372BFF9D0000BB36EB /* Base in Resources */,
+				705B82612C0920FE00BCE120 /* number.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +147,7 @@
 			files = (
 				702DD9342BFF9D0000BB36EB /* ViewController.swift in Sources */,
 				702DD9302BFF9D0000BB36EB /* AppDelegate.swift in Sources */,
+				705B825D2C09163400BCE120 /* AboutViewController.swift in Sources */,
 				702DD9322BFF9D0000BB36EB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,9 +302,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSApp1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Guess The Number";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -321,9 +332,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSApp1/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Guess The Number";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.puzzle-games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -21,37 +21,86 @@ class ViewController: UIViewController {
     var score = 0
     var round = 0
 
-    //
+    // ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound() // Initialize the game when the view loads
+        
+        startNewGame() // Start new game when the view loads
+        
+        let thumbImageNormal = UIImage(named: "SliderThumb-Highlighted-1")!
+        slider.setThumbImage(thumbImageNormal, for: .normal)
+
+        let thumbImageHighlighted = UIImage(
+          named: "SliderThumb-Normal-1")!
+        slider.setThumbImage(thumbImageHighlighted, for: .highlighted)
+
+        let insets = UIEdgeInsets(
+          top: 0,
+          left: 14,
+          bottom: 0,
+          right: 14)
+
+        let trackLeftImage = UIImage(named: "SliderTrackLeft-1")!
+        let trackLeftResizable = trackLeftImage.resizableImage(
+          withCapInsets: insets)
+        slider.setMinimumTrackImage(trackLeftResizable, for: .normal)
+
+        let trackRightImage = UIImage(named: "SliderTrackRight")!
+        let trackRightResizable = trackRightImage.resizableImage(
+          withCapInsets: insets)
+        slider.setMaximumTrackImage(trackRightResizable, for: .normal)
+
     }
     
     // IBActions
     @IBAction func showAlert() {
-        let difference = abs(targetValue - currentValue) // Calculate the difference between the target value and the current value
-        let points = 50 - difference // Calculate points based on how close the guess was to the target value
-        score += points  // Update the score with the points earned
+        // Calculate the difference between the target value and the current value
+        let difference = abs(targetValue - currentValue)
+        
+        // Use var instead of let since points might be modified
+        var points = 100 - difference
+
+        // Determine the title for the alert based on the difference and add bonus points if applicable
+        let title: String
+        if difference == 0 {
+            title = "Spot On!"
+            points += 100  // Award bonus points for a perfect guess
+        } else if difference < 5 {
+            title = "Almost There!"
+            if difference == 1 {
+                points += 50  // Award additional bonus points for being just 1 off
+            }
+        } else if difference < 10 {
+            title = "Good Guess!"
+        } else {
+            title = "Better Luck Next Time!"
+        }
+
+        // Update the score with the points earned, including any bonus points
+        score += points
 
         // Prepare the message to display in the alert
-        let message = "You guessed \(currentValue).\nThe number was \(targetValue).\nYou scored \(points) points."
+        let message = "You scored \(points) points."
 
         // Create and configure the alert controller
         let alert = UIAlertController(
-            title: "Result",
+            title: title,  // Use the determined title
             message: message,
             preferredStyle: .alert)
 
         // Add an action to the alert (OK button) that starts a new round when tapped
         let action = UIAlertAction(
             title: "OK",
-            style: .default) { _ in
+            style: .default,
+            handler: { _ in
                 self.startNewRound() // Start a new round after the alert is dismissed
-            }
+            })
 
-        alert.addAction(action) // Add the action to the alert
+        // Add the action to the alert
+        alert.addAction(action)
 
-        present(alert, animated: true, completion: nil) // Present the alert to the user
+        // Present the alert to the user
+        present(alert, animated: true, completion: nil)
     }
 
 
@@ -64,10 +113,26 @@ class ViewController: UIViewController {
         func startNewRound() {
             round += 1 // Increment the round number
             targetValue = Int.random(in: 1...50) // Generate a new random target value between 1 and 50
-            currentValue = 25 // Reset the current value to a initial value
+            currentValue = 0 // Reset the current value to a initial value
             slider.value = Float(currentValue)  // Update the slider's position to match the current value
             updateLabels()  // Update UI labels with new values
         }
+    
+        // Start New Game
+        @IBAction func startNewGame() {
+            score = 0
+            round = 0
+            startNewRound()
+            
+            //Transition
+            let transition = CATransition()
+              transition.type = CATransitionType.fade
+              transition.duration = 1
+              transition.timingFunction = CAMediaTimingFunction(
+                name: CAMediaTimingFunctionName.easeOut)
+              view.layer.add(transition, forKey: nil)
+        }
+
     
         // Update UI labels with current values
         func updateLabels() {
